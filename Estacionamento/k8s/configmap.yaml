@@ -1,0 +1,10 @@
+﻿apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: estacionamento-config
+  namespace: estacionamento
+data:
+  apsnetcore_environment: "Development"
+  connection_sqlserver: "Server=sqlserver.estacionamento.svc.cluster.local;Persist Security Info=False;User Id=sa;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;Connection Timeout=30;"
+  data_base: "Estacionamento"
+  data_base_master: "Master"

@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: estacionamento-deployment
+  namespace: estacionamento
+spec:
+  selector:
+    matchLabels:
+      application: api-estacionamento
+  template:
+    metadata:
+      labels:
+        application: api-estacionamento
+    spec:
+      containers:
+      - name: api-estacionamento
+        image: estacionamento/api-estacionamento:1.0.0
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        env:
+        - name: APSNETCORE_ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              name: estacionamento-config
+              key: apsnetcore_environment
+        - name: CONNECTION_SQLSERVER
+          valueFrom:
+            configMapKeyRef:
+              name: estacionamento-config
+              key: connection_sqlserver
+        - name: DATA_BASE
+          valueFrom:
+            configMapKeyRef:
+              name: estacionamento-config
+              key: data_base
+        - name: SA_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sqlserver-secret
+              key: SA_PASSWORD

@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sqlserver-job
+  namespace: estacionamento
+spec:
+  template:
+    spec:
+      containers:
+      - name: sqlserver-job
+        image: estacionamento/scripts-estacionamento:1.0.0
+        env:
+        - name: CONNECTION_SQLSERVER
+          valueFrom:
+            configMapKeyRef:
+              name: estacionamento-config
+              key: connection_sqlserver
+        - name: DATA_BASE_MASTER
+          valueFrom:
+            configMapKeyRef:
+              name: estacionamento-config
+              key: data_base_master
+        - name: SA_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sqlserver-secret
+              key: SA_PASSWORD
+      restartPolicy: OnFailure
+  backoffLimit: 4

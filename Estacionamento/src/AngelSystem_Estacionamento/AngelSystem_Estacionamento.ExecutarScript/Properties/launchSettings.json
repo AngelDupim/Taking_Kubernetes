@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "AngelSystem_Estacionamento.ExecutarScript": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "CONNECTION_SQLSERVER": "Server=localhost,31000;Persist Security Info=False;User Id=sa;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;Connection Timeout=30;",
+        "DATA_BASE_MASTER": "Master",
+        "SA_PASSWORD": "Teste@123"
+      }
+    }
+  }  
+}

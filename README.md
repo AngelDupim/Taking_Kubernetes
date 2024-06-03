@@ -1,4 +1,5 @@
 
+
 # Taking_Kubernetes
 
 <h1  align="center">Exercício do treinamento Kubernetes T1</h1>
@@ -26,7 +27,7 @@
 <!--te-->
 
 ---
-<h4  align="center"> Estacionemento Web - 🚧 Em construção🚧 </h4>
+<h4  align="center"> Estacionamento Web - 🚧 Em construção🚧 </h4>
 
 ---
 
@@ -110,6 +111,7 @@ sh  apply.sh
 
 ```
 👉 No DBeaver acesso o banco SqlServer pela url: localhost:31000 - Username: sa
+
 👉 No browser acesse a API pela a url: http://localhost:31001/swagger/index.html
 
 ---
